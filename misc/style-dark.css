@@ -167,7 +167,8 @@ button {
 .search-container {
   display: flex;
   align-items: center;
-  margin: var(--spacing-page)
+  margin: var(--spacing-page);
+  margin-bottom: 2rem;
 }
 
 .search-container h1 {
@@ -286,9 +287,9 @@ hr.small-line {
   }
         
   .search-container input {
-    width: calc(100% - var(--spacing-page));
+    width: calc(100% - 2 * (var(--spacing-page) + 9px));
     margin-top: 1.25rem;
-    margin-right: 1.25rem;
+    margin-right: var(--spacing-page);
   }
         
   button {
