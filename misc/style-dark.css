@@ -110,7 +110,7 @@ a[href^="/search.php?"] {
   border-radius: 1.5rem;
   float: right;
   margin: var(--spacing-page);
-  font-size: 16px;
+  font-size: 11pt;
   font-weight: normal;
 }
 
