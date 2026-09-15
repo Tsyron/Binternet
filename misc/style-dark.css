@@ -1,27 +1,39 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --main: #fff;
+    --main-second: #e6e5e6;
+    --background-hover: rgb(0 0 0 / .125);
+    --fg-color: #000;
+    --accent-color: #0ebe98;
+  } 
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main: #2a2b2b;
+    --main-second: #1f2120;
+    --background-hover: rgb(255 255 255 / .05);
+    --fg-color: #fff;
+    --accent-color:#12e8b9;
+  }
+}
+
 :root {
-  --accent-color:#12e8b9;
-  --fg-color: white;
-  --border-color: rgb(97, 97, 97);
-  --main: #2a2b2b;
-  --main-second: #1f2120;
-  
+  --spacing-page: 1.25rem;
+  --spacing-images: 1em;
 }
 
 body {
   background-color: var(--main);
   color: var(--fg-color);
-  font-family: verdana, arial, sans-serif;
+  font-family: system-ui, Arial, Helvetica, sans-serif;
   overflow-x: hidden;
   padding: 0;
   margin: 0;
   font-size: 16px;
 }
 
-input:focus {
-  border: 1px solid var(--border-color);
-}
-
-.accent{
+.accent {
   color: var(--accent-color);
 }
 
@@ -33,7 +45,7 @@ input:focus {
   transform: translate(-50%, -50%);
 }
 
-.hide{
+.hide {
   display: none;
 }
 
@@ -70,11 +82,11 @@ footer {
   width: 100vw;
   padding: 10px;
   background-color: var(--main-second);
-  position: fixed;
+  position: relative;
   bottom: 0;
 }
 
-footer a{
+footer a {
   margin-right: 30px;
 }
 
@@ -92,7 +104,25 @@ a {
   color: var(--fg-color);
 }
 
-footer a:hover{
+a[href^="/search.php?"] {
+  background-color: var(--main-second);
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  float: right;
+  margin: var(--spacing-page);
+  font-size: 16px;
+  font-weight: normal;
+}
+
+a[href^="/search.php?"]:hover {
+  background-color: var(--background-hover);
+}
+
+h2 {
+  margin: 0;
+}
+
+footer a:hover {
   color: var(--accent-color);
 }
 
@@ -103,63 +133,69 @@ footer a:hover{
   justify-content: center;
 }
 
-
 input {
   width: 500px;
   outline: none;
-  color: white;
+  color: var(--fg-color);
   background-color: var(--main-second);
   border: 1px solid var(--main-second);
-  border-radius: 10px 0px 0px 10px;
-  padding: 15px;
+  border-radius: 1.5rem 0 0 1.5rem;
+  padding: 1rem;
   font-size: inherit;
+}
 
+input:focus {
+  border: 1px solid var(--accent-color);
+}
+
+input:hover {
+  background-color: var(--background-hover);
 }
 
 button {
-  padding: 15px;
-  color: var(--main-second);
+  padding: 1rem;
+  color: var(--main);
   background-color: var(--accent-color);
-  border: 0;
-  border-radius: 0px 10px 10px 0px;
+  border: 1px solid var(--accent-color);
+  border-radius: 0 1.5rem 1.5rem 0;
   cursor: pointer;
-  font-size: 15px;
   font-weight: bold;
 }
 
 /* search css start */
 
-.search-container{
+.search-container {
   display: flex;
   align-items: center;
-  margin: 20px 20px 40px 20px;
+  margin: var(--spacing-page)
 }
 
-.search-container h1{
+.search-container h1 {
   margin: 0;
+  font-size: 1.25rem;
 }
 
-.search-container input{
-  border-radius: 10px;
-  margin-left: 100px;
+.search-container input {
+  border-radius: 1.5rem;
+  margin-left: var(--spacing-page);
 }
 
 .img-result img {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius:  0.2rem;
+  border-radius: 1em;
 }
 
-.img-container{
+.img-container {
   column-count: auto;
   column-width: 14rem;
-  column-gap: 0.5rem;
-  padding: 1rem;
+  column-gap: var(--spacing-images);
+  padding: 0 var(--spacing-page) 0;
 }
 
 .img-result {
-  margin-bottom: 0.5rem;
+  margin-bottom: calc(var(--spacing-images) - 0.25rem);;
   display: block;
 }
 
@@ -173,7 +209,12 @@ button {
   width: 700px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: var(--spacing-page);
   margin-bottom: 100px;
+}
+
+.donate-container h2 {
+  margin-bottom: 1.25rem;
 }
 
 .flexbox-column {
@@ -224,16 +265,15 @@ hr.small-line {
 
 @media only screen and (max-width: 750px) {
 
-  body{
+  body {
     font-size: 14px;
   }
 
   .mainContainer h1 {
     font-size: 35px;
-  
   }
 
-  input{
+  input {
     width: 100%;
   }
 
@@ -241,7 +281,21 @@ hr.small-line {
     width: 95%;
   }
 
-  .search-container{
+  .img-result {
+    margin-bottom: calc(var(--spacing-images) - 0.25em);
+  }
+        
+  .search-container input {
+    width: calc(100% - var(--spacing-page));
+    margin-top: 1.25rem;
+    margin-right: 1.25rem;
+  }
+        
+  button {
+    font-size: 14px;
+  }
+
+  .search-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -252,7 +306,6 @@ hr.small-line {
     margin-top: 20px;
     margin-left: 0;
   }
-
 
   /* dontate css start*/
 
