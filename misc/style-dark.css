@@ -140,7 +140,7 @@ input {
   background-color: var(--main-second);
   border: 1px solid var(--main-second);
   border-radius: 1.5rem 0 0 1.5rem;
-  padding: 1rem;
+  padding: 0.75rem 1rem 0.75rem 1rem;
   font-size: inherit;
 }
 
@@ -153,7 +153,7 @@ input:hover {
 }
 
 button {
-  padding: 1rem;
+  padding: 0.75rem 1rem 0.75rem 1rem;
   color: var(--main);
   background-color: var(--accent-color);
   border: 1px solid var(--accent-color);
