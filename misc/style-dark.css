@@ -5,16 +5,18 @@
     --background-hover: rgb(0 0 0 / .125);
     --fg-color: #000;
     --accent-color: #0ebe98;
+    --accent-color-hover: #0daf8c;
   } 
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --main: #2a2b2b;
-    --main-second: #1f2120;
-    --background-hover: rgb(255 255 255 / .05);
+    --main: #1f2120;
+    --main-second: #2d2e2e;
+    --background-hover: #343736;
     --fg-color: #fff;
     --accent-color:#12e8b9;
+    --accent-color-hover: #0fc79f;
   }
 }
 
@@ -153,13 +155,17 @@ input:hover {
 }
 
 button {
-  padding: 0.75rem 1rem 0.75rem 1rem;
+  padding: calc(0.75rem + 1.5px) 1rem calc(0.75rem + 1.5px) 1rem;
   color: var(--main);
   background-color: var(--accent-color);
   border: 1px solid var(--accent-color);
   border-radius: 0 1.5rem 1.5rem 0;
   cursor: pointer;
   font-weight: bold;
+}
+
+button:hover {
+  background-color: var(--accent-color-hover);
 }
 
 /* search css start */
@@ -185,7 +191,8 @@ button {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 1em;
+  border-radius: 2em;
+  corner-shape: squircle;
 }
 
 .img-container {
